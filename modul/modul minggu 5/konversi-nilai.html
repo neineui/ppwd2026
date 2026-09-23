@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Program Konversi Nilai Mahasiswa</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .kalkulator {
+            background: rgba(255, 255, 255, 0.92);
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(25, 25, 57, 0.35);
+            text-align: center;
+        }
+
+        h2 {
+            color: #184486;
+            margin-bottom: 25px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            width: 80%;
+            box-sizing: border-box;
+            border: 2px solid #a0d1f0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ffea74;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            background: #184486;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a0d1f0;
+            color: #184486;
+        }
+
+        .hasil {
+            font-size: 28px;
+            font-weight: bold;
+            color: #184486;
+            margin-top: 20px;
+        }
+
+        .hasil span {
+            color: #ffea74;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kalkulator">
+        <h2>⋆˚꩜｡ KONVERSI NILAI ｡꩜˚⋆</h2>
+
+        <input type="number" id="nilai" placeholder="Masukkan Nilai (0-100)">
+        <br>
+
+        <button onclick="konversiNilai()">Konversi Nilai</button>
+
+        <div class="hasil">
+            Grade: <span id="idTarget">-</span>
+        </div>
+    </div>
+
+    <script>
+        function konversiNilai() {
+            let nilai = parseFloat(document.getElementById('nilai').value);
+            let grade;
+
+            if (nilai >= 90 && nilai <= 100) {
+                grade = "Grade A";
+            } else if (nilai >= 80) {
+                grade = "Grade B";
+            } else if (nilai >= 70) {
+                grade = "Grade C";
+            } else if (nilai >= 60) {
+                grade = "Grade D";
+            } else if (nilai >= 0) {
+                grade = "Grade E";
+            } else {
+                grade = "Nilai tidak valid";
+            }
+
+            document.getElementById('idTarget').innerHTML = grade;
+        }
+    </script>
+</body>
+</html>

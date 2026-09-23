@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <img src="profil.jpg" alt="Foto Profil" class="foto-profil">
+        <h1>Neisya Fadilla Nurkhairunnisa</h1>
+        <p>Mahasiswa Sistem Informasi Angkatan 2025 — Fakultas MIPA Universitas Tanjungpura</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#tentang">Tentang</a>
+        <a href="#jadwal">Jadwal</a>
+        <a href="#hobi">Hobi</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+
+    <main class="konten">
+        <section id="tentang">
+            <h2>Tentang Saya</h2>
+            <p>
+                Hallo Guys! Aku Neisya, seorang mahasiswa yang sedang belajar membuat
+                web dengan HTML dan CSS. Aku tertarik pada dunia desain, karena aku
+                suka mengatur tampilan yang tadinya terlihat polos
+                menjadi lebih menarik, rapi, dan nyaman dilihat.
+            </p>
+        </section>
+
+        <section id="jadwal">
+            <h2>Jadwal Mata Kuliah Favorit</h2>
+
+            <table>
+                <tr>
+                    <th>Hari</th>
+                    <th>Mata Kuliah</th>
+                    <th>Jam</th>
+                </tr>
+
+                <tr>
+                    <td>Selasa</td>
+                    <td>Praktikum Pemrograman Web Dasar</td>
+                    <td>10.20 – 13.10</td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td>Aplikasi Multimedia</td>
+                    <td>07.30 – 10.00</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="hobi">
+            <h2>Daftar Hobi</h2>
+
+            <table class="tabel-hobi">
+                <tr>
+                    <th>No</th>
+                    <th>Hobi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Menonton Film dan Drama Korea</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mendengarkan Musik sambil Bernyanyi</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bermain Game di Handphone</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Makan dan Tidur</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="kontak">
+            <h2>Formulir Kontak</h2>
+
+            <form>
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" placeholder="Tulis nama Anda">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="nama@email.com">
+
+                <label for="pesan">Pesan</label>
+                <textarea id="pesan" rows="4"
+                    placeholder="Tulis pesan..."></textarea>
+
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Neisya. Dibuat dengan HTML &amp; CSS.</p>
+    </footer>
+
+</body>
+</html>

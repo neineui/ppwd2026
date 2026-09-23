@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Program Kalkulator</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .kalkulator {
+            background: rgba(255, 255, 255, 0.92);
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(25, 25, 57, 0.35);
+            text-align: center;
+        }
+
+        h2 {
+            color: #184486;
+            margin-bottom: 25px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            width: 80%;
+            box-sizing: border-box;
+            border: 2px solid #a0d1f0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ffea74;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            background: #184486;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ffea74;
+            color: #184486;
+        }
+
+        .hasil {
+            font-size: 28px;
+            font-weight: bold;
+            color: #184486;
+            margin-top: 20px;
+        }
+
+        .hasil span {
+            color: #ffea74;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kalkulator">
+        <h2>⋆˚꩜｡ KALKULATOR ｡꩜˚⋆</h2>
+
+        <input type="number" id="angka1" placeholder="Masukkan Angka Pertama">
+        <br>
+
+        <input type="number" id="angka2" placeholder="Masukkan Angka Kedua">
+        <br>
+
+        <button onclick="tambah()">+</button>
+        <button onclick="kurang()">−</button>
+        <button onclick="kali()">×</button>
+        <button onclick="bagi()">÷</button>
+        <br>
+
+        <button onclick="reset()" style="background: #a0d1f0; color: #184486;">Reset</button>
+
+        <div class="hasil">
+            Hasil: <span id="hasilAngka">0</span>
+        </div>
+    </div>
+
+    <div class="kalkulator">
+        <h2>⋆˚꩜｡ KONVERSI SUHU ｡꩜˚⋆</h2>
+
+        <input type="number" id="celcius" placeholder="Masukkan Suhu Celsius">
+        <br>
+
+        <button onclick="konversi()">Ubah ke Fahrenheit</button>
+
+        <div class="hasil">
+            Hasil: <span id="hasilSuhu">0</span> °F
+        </div>
+    </div>
+
+    <div class="kalkulator">
+        <h2>⋆˚꩜｡ GANJIL / GENAP ｡꩜˚⋆</h2>
+
+        <input type="number" id="angka" placeholder="Masukkan Sebuah Angka">
+        <br>
+
+        <button onclick="cekAngka()">Cek Angka</button>
+
+        <div class="hasil">
+            Hasil: <span id="hasilGanjilGenap">-</span>
+        </div>
+    </div>
+
+    <div class="kalkulator">
+        <h2>⋆˚꩜｡ KALKULATOR DISKON ｡꩜˚⋆</h2>
+
+        <input type="number" id="total" placeholder="Masukkan Total Belanja">
+        <br>
+
+        <button onclick="hitungDiskon()">Hitung Diskon</button>
+
+        <div class="hasil">
+            Total Bayar: Rp <span id="hasilDiskon">0</span>
+        </div>
+    </div>
+
+    <script>
+        function tambah() {
+            let a = parseFloat(document.getElementById('angka1').value);
+            let b = parseFloat(document.getElementById('angka2').value);
+
+            document.getElementById('hasilAngka').innerHTML = a + b;
+        }
+
+        function kurang() {
+            let a = parseFloat(document.getElementById('angka1').value);
+            let b = parseFloat(document.getElementById('angka2').value);
+
+            document.getElementById('hasilAngka').innerHTML = a - b;
+        }
+
+        function kali() {
+            let a = parseFloat(document.getElementById('angka1').value);
+            let b = parseFloat(document.getElementById('angka2').value);
+
+            document.getElementById('hasilAngka').innerHTML = a * b;
+        }
+
+        function bagi() {
+            let a = parseFloat(document.getElementById('angka1').value);
+            let b = parseFloat(document.getElementById('angka2').value);
+
+            if (b === 0) {
+                alert('Peringatan: Tidak bisa membagi angka dengan 0!');
+                return;
+            }
+
+            document.getElementById('hasilAngka').innerHTML = a / b;
+        }
+
+        function reset() {
+            document.getElementById('angka1').value = '';
+            document.getElementById('angka2').value = '';
+            document.getElementById('hasilAngka').innerHTML = '0';
+        }
+
+        function konversi() {
+            let c = parseFloat(document.getElementById('celcius').value);
+
+            let f = (c * 9 / 5) + 32;
+
+            document.getElementById('hasilSuhu').innerHTML = f;
+        }
+
+        function cekAngka() {
+            let angka = parseInt(document.getElementById('angka').value);
+
+            if (angka % 2 === 0) {
+                document.getElementById('hasilGanjilGenap').innerHTML = "Angka Genap";
+            } else {
+                document.getElementById('hasilGanjilGenap').innerHTML = "Angka Ganjil";
+            }
+        }
+
+        function hitungDiskon() {
+            let total = parseFloat(document.getElementById('total').value);
+            let hasil;
+
+            if (total > 100000) {
+                hasil = total - (total * 10 / 100);
+            } else {
+                hasil = total;
+            }
+
+            document.getElementById('hasilDiskon').innerHTML = hasil;
+        }
+    </script>
+</body>
+</html>

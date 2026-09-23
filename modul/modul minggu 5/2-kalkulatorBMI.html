@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator BMI</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .kalkulator {
+            background: rgba(255, 255, 255, 0.92);
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(25, 25, 57, 0.35);
+            text-align: center;
+        }
+
+        h2 {
+            color: #184486;
+            margin-bottom: 25px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            width: 80%;
+            box-sizing: border-box;
+            border: 2px solid #a0d1f0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ffea74;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            font-size: 16px;
+            font-family: "Times New Roman", Times, serif;
+            background: #184486;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ffea74;
+            color: #184486;
+        }
+
+        .hasil {
+            font-size: 24px;
+            font-weight: bold;
+            color: #184486;
+            margin-top: 20px;
+        }
+
+        .hasil span {
+            color: #ffea74;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kalkulator">
+        <h2>⋆˚꩜｡ KALKULATOR BMI ｡꩜˚⋆</h2>
+
+        <input type="number" id="berat" placeholder="Masukkan Berat (kg)">
+        <br>
+
+        <input type="number" id="tinggi" placeholder="Masukkan Tinggi (cm)">
+        <br>
+
+        <button onclick="hitungBMI()">Hitung BMI</button>
+
+        <div class="hasil">
+            BMI: <span id="hasilBMI">0</span>
+            <br>
+            Status: <span id="statusBMI">-</span>
+        </div>
+    </div>
+
+    <script>
+        function hitungBMI() {
+            let berat = parseFloat(document.getElementById('berat').value);
+            let tinggi = parseFloat(document.getElementById('tinggi').value);
+
+            let tinggiMeter = tinggi / 100;
+
+            let bmi = berat / (tinggiMeter * tinggiMeter);
+
+            let status;
+
+            if (bmi < 18.5) {
+                status = "Kurus";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                status = "Normal";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                status = "Gemuk";
+            } else {
+                status = "Obesitas";
+            }
+
+            document.getElementById('hasilBMI').innerHTML = bmi.toFixed(2);
+            document.getElementById('statusBMI').innerHTML = status;
+        }
+    </script>
+</body>
+</html>
