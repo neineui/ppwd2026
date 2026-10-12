@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kuis Pilihan Ganda</title>
+
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                background-color: #cbff81;
+                padding: 20px;
+            }
+
+            header {
+                text-align: center;
+            }
+
+            .soal {
+                background-color: rgb(255, 215, 215);
+                padding: 15px;
+                margin: 15px auto;
+                max-width: 600px;
+            }
+
+            button {
+                display: block;
+                margin: 20px auto;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+            #hasil {
+                text-align: center;
+                font-weight: bold;
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Kuis Pilihan Ganda</h1>
+            <p>Nama: Neisya Fadilla Nurkhairunnisa</p>
+            <p>NIM: H1101251007</p>
+        </header>
+
+        <main>
+            <section id="kuis"></section>
+
+            <button onclick="cekJawaban_2026()">Kumpulkan</button>
+
+            <section id="hasil"></section>
+        </main>
+
+        <footer>
+            <p>UTS Pemrograman Web Dasar</p>
+        </footer>
+
+        <script>
+            let soal_2026 = [
+                {
+                    soal: "HTML digunakan untuk?",
+                    pilihan: [
+                        "Membuat struktur halaman web",
+                        "Mengedit foto",
+                        "Membuat database",
+                        "Membuat jaringan"
+                    ],
+                    jawaban: 0
+                },
+                {
+                    soal: "CSS digunakan untuk?",
+                    pilihan: [
+                        "Mengatur database",
+                        "Mengatur tampilan web",
+                        "Membuat server",
+                        "Membuat email"
+                    ],
+                    jawaban: 1
+                },
+                {
+                    soal: "JavaScript digunakan untuk?",
+                    pilihan: [
+                        "Membuat kabel jaringan",
+                        "Mengatur database",
+                        "Membuat halaman menjadi interaktif",
+                        "Mengedit gambar"
+                    ],
+                    jawaban: 2
+                }
+            ];
+
+            let kuis_2026 = document.getElementById("kuis");
+
+            for (let i = 0; i < soal_2026.length; i++) {
+
+                kuis_2026.innerHTML += `
+                    <div class="soal">
+                        <p>${i + 1}. ${soal_2026[i].soal}</p>
+
+                        <label>
+                            <input type="radio" name="soal${i}" value="0">
+                            ${soal_2026[i].pilihan[0]}
+                        </label><br>
+
+                        <label>
+                            <input type="radio" name="soal${i}" value="1">
+                            ${soal_2026[i].pilihan[1]}
+                        </label><br>
+
+                        <label>
+                            <input type="radio" name="soal${i}" value="2">
+                            ${soal_2026[i].pilihan[2]}
+                        </label><br>
+
+                        <label>
+                            <input type="radio" name="soal${i}" value="3">
+                            ${soal_2026[i].pilihan[3]}
+                        </label>
+                    </div>
+                `;
+            }
+
+            function cekJawaban_2026() {
+
+                let benar_2026 = 0;
+
+                for (let i = 0; i < soal_2026.length; i++) {
+
+                    let jawaban = document.querySelector(
+                        `input[name="soal${i}"]:checked`
+                    );
+
+                    if (jawaban && jawaban.value == soal_2026[i].jawaban) {
+                        benar_2026++;
+                    }
+                }
+
+                let nilai_2026 = (benar_2026 / soal_2026.length) * 100;
+
+                document.getElementById("hasil").innerHTML =
+                    "Jawaban benar: " + benar_2026 +
+                    " dari " + soal_2026.length +
+                    "<br>Nilai: " + nilai_2026 +
+                    "<br>Feedback: " +
+                    (nilai_2026 >= 70 ? "Bagus!" : "Belajar lagi ya!");
+            }
+        </script>
+    </body>
+</html>
